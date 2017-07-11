@@ -73,12 +73,12 @@ def pack2wavefile(data,sample_width=2,path="just_text.wav"):
     wf.writeframes(data)
     sound_file=wf.writeframes(data)
 
-    swf=swave.open('wavetest.wav', 'wb')
+    '''swf=swave.open('wavetest.wav', 'wb')
     swf.setnchannels(1)
     swf.setsampwidth(sample_width)
     swf.setframerate(RATE)
     swf.writeframes(data)
-    swf.close()
+    swf.close()'''
 
     myfile=open(path, 'wb')
     myfile.write(sound_file.get_buffer())

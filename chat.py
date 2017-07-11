@@ -92,6 +92,24 @@ class cRobot:
         buffer=res.read()
         return buffer
 
+    def text2MP3_play(self,text,cuid):
+        res_text_utf=text.encode('utf-8')
+        _res_text_utf=urllib2.quote(res_text_utf)
+        murl=self.text2audio_url+"?"+"tex="+_res_text_utf+"&lan=zh"+"&cuid="+cuid+"&ctp=1&tok="+self.mtoken
+        from omxplayer import OMXPlayer
+        from time import sleep
+
+        player = OMXPlayer(murl)
+
+        # The player will initially be paused
+
+        player.play()
+        sleep(5)
+        player.pause()
+
+        # Kill the `omxplayer` process gracefully.
+        player.quit()
+
     def chat(self,sound,len_wave,cuid="aaaaaaa",location="四川省成都市"):
         #sound_wave=pack_wave.pack2wavefile(sound)
         #print "len(sound_wave):",len(sound_wave)
@@ -104,3 +122,11 @@ class cRobot:
         btext=self.text2text(atext=atext,cuid=cuid)
         res_MP3=self.text2MP3(text=btext,cuid=cuid)
         return res_MP3
+
+    def chat_play(self,sound,len_wave,cuid="aaaaaaa",location="四川省成都市"):
+        sound_wave=pack_wave.pack2wavefile(sound)
+        print "len(sound_wave):",len(sound_wave)
+        atext=self.audio2text(sound=sound_wave,RATE=8000,cuid=cuid)
+
+        btext=self.text2text(atext=atext,cuid=cuid)
+        self.text2MP3_play(text=btext,cuid=cuid)
