@@ -48,7 +48,7 @@ def record():
 
     # Set attributes: Mono, 16000 Hz, 16 bit little endian samples
     inp.setchannels(1)
-    inp.setrate(16000)
+    inp.setrate(8000)
     inp.setperiodsize(800)
     inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
     sound=array('h')
