@@ -23,5 +23,5 @@ if __name__ =='__main__':
         f2=file(r"hhh.mp3",'w')
         f2.write(res_mp3)
         f2.close()
-        #os.system('play hhh.mp3')
-        chatbot.chat_play(sound,s_len*2)
+        os.system('omxplay -h -o local hhh.mp3')
+        #chatbot.chat_play(sound,s_len*2)
