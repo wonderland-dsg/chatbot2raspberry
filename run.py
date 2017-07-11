@@ -5,11 +5,11 @@ import record
 if __name__ =='__main__':
     chatbot=chat.cRobot()
     while(True):
-        str = raw_input("Enter your input: ")
+        '''str = raw_input("Enter your input: ")
         if(str=='q'):
             print "finished!"
             break
-        print str
+        print str'''
 
         #os.system('arecord -D "plughw:1,0" -f S16_LE -d 5 -r 8000 d.wav')
         #fp=wave.open("d.wav",'rb')
