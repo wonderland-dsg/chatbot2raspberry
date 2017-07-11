@@ -10,7 +10,7 @@ import wave as swave
 
 THRESHOLD = 400
 CHUNK_SIZE = 1024
-RATE = 8000
+RATE = 16000
 
 def is_silent(snd_data):
     "Returns 'True' if below the 'silent' threshold"
